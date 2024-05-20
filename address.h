@@ -2,16 +2,20 @@
 #define SERI4_ADRESS_H
 
 
-class adress {
+class address {
 private:
     string country , city, street;
 
 public:
 
-    adress (string , string , string);
+    address (string , string , string);
 
 void set_address(string , string , string);
-void get_add
+void get_address();
+
+ friend ostream& operator << (ostream& , address&);
+ friend istream& operator >> (istream& , address&);
+
 };
 
 
