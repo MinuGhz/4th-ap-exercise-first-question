@@ -11,11 +11,15 @@ person::person() {
 }
 
 person::person(string name, string ID, address &ADD) {
-    this->name = name;
-    id = ID;
-    Address.country = ADD.country;
-    Address.city = ADD.city;
-    Address.street = ADD.street;
+    if(validate(ID)) {
+        this->name = name;
+        id = ID;
+        Address.country = ADD.country;
+        Address.city = ADD.city;
+        Address.street = ADD.street;
+    }
+
+    else {cout<<"Invalid ID format!\n" ; exit;}
 }
 
 person::person(const person& P) {
@@ -42,12 +46,22 @@ bool person::validate(const string& ID) {
     if(ID.length() <8 || ID.length() > 10) return false;
     int entryYear = ID.stoi(0 , 2);
     if(entryYear<84 || entryYear > 99) return false;
+
     if(isalpha(ID[2])){
         if(isalpha(ID[3]) && !isalpha(ID[4])) return false;
+
     }
     else return false;
 
-    for(int i=)
+    for(int i=2 ; i<ID.length() ; i++){
+        if (isalpha(ID[i])) continue;
+        else {
+            int number = Id.stoi(i , i);
+            if(number > 6 || number < 4) return false;
+        }
+    }
+
+    return true;
 }
 
 ostream& operator << (ostream& output ,const person& Person){
