@@ -18,6 +18,7 @@ void get_address();
  friend istream& operator >> (istream& , address&);
 
  friend person;
+ friend employee;
 };
 
 
