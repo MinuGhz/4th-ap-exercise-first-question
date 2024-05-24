@@ -12,11 +12,13 @@ class address;
 class person {
 private:
     string name , id;
-    address Address;
+
 
     bool validate(const string&);
 
 public:
+
+    address *Address;
     person(string, string , address&);
     person();
     person(const person&);
@@ -27,7 +29,7 @@ public:
     friend address;
     friend ostream& operator << (ostream& , person&);
     friend istream& operator >> (istream& , person&);
-    void operator = (person& , const person&);
+    void operator = (const person&);
 };
 
 
