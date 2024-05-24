@@ -1,5 +1,6 @@
 #include "address.h"
 #include "iostream"
+#include "string"
 using namespace std;
 
 address::address() {
@@ -17,12 +18,12 @@ void address::set_address(string co , string c , string s){
 }
 
 void address::get_address() {
-    "country: "<<country<<", city: "<<city<<", street: "<<street<<endl;
+    cout<<"country: "<<country<<", city: "<<city<<", street: "<<street<<endl;
 }
 
 
-ostream& operator << (ostream& output ,address& Address)
-    output<<Address.get_address();
+ostream& operator << (ostream& output ,address& Address){
+    output<<Address.country<<","<<Address.city<<", "<<Address.street;
 
       return output;
 }

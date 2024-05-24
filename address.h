@@ -1,13 +1,19 @@
 #ifndef SERI4_ADRESS_H
 #define SERI4_ADRESS_H
 #include "person.h"
+#include "employee.h"
+#include "iostream"
+#include "cstring"
+using namespace std;
+
+class person;
+class employee;
 
 class address {
-protected:
-    string country , city, street;
 
 public:
 
+    string country , city, street;
     address();
     address (string , string , string);
 

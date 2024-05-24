@@ -7,6 +7,8 @@
 #include "iostream"
 using namespace std;
 
+class address;
+
 class person {
 private:
     string name , id;
@@ -23,9 +25,9 @@ public:
     void set_person(string, string, string, string, string);
 
     friend address;
-    friend ostream& operator << (ostream& , const person&);
+    friend ostream& operator << (ostream& , person&);
     friend istream& operator >> (istream& , person&);
-    friend person& operator = (person& , const person&);
+    void operator = (person& , const person&);
 };
 
 

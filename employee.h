@@ -4,21 +4,27 @@
 
 #include "address.h"
 
+class address;
 
 class employee {
 private:
-    int hourWork , salaryPerHour , workDone;
+    int hourWork , salaryPerHour ,workTodo, workDone;
 
 public:
     string name , id;
     address Address;
 
     employee();
-    employee(int , int , int , string , string , address&);
+    employee(int , int , int , int , string , string , address&);
     employee(const employee&);
 
-    void set_employee(int , int , int);
+    void set_employee(int , int , int , int);
     void set_employee(string , string, address&);
+    void get_employee();
+
+
+    friend ostream& operator <<(ostream& , const employee&);
+    friend istream& operator >>(istream& , employee&);
 };
 
 
