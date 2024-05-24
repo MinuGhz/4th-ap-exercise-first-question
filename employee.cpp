@@ -16,10 +16,11 @@ employee::employee(string Name, string ID, address &Add, int HW, int SPH, int WT
 }
 
 employee::employee(const employee &Emp) {
+    Address = new address;
     hourWork = Emp.hourWork; salaryPerHour = Emp.salaryPerHour;
     workTodo = Emp.workTodo; workDone = Emp.workDone;
     name = Emp.name; id = Emp.id;
-    Address = Emp.Address;
+    *Address = *Emp.Address;
 }
 
 
@@ -66,7 +67,7 @@ ostream& operator << (ostream& output , employee& Emp){
 }
 
 istream& operator >> (istream& input , employee& Emp){
-    char temporaryString[100];
+    /*char temporaryString[100];
     int Hw, Sph , Wd , wtd;
     cin>>temporaryString;
     Emp.name = temporaryString;
@@ -74,9 +75,9 @@ istream& operator >> (istream& input , employee& Emp){
     Emp.id = temporaryString;
     cin>>*Emp.Address;
     cin>>Hw>>Sph>>Wd;
-    Emp.set_employee(Hw, Sph, wtd, Wd);
+    Emp.set_employee(Hw, Sph, wtd, Wd);*/
 
-    input>>Emp.name>>Emp.id>>*Emp.Address;
+   input>>Emp.name>>Emp.id>>*Emp.Address;
 
     return input;
 }
